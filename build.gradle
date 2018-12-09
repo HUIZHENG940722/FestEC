@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.0'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+//父Project的一个属性,该属性会返回该Project对象以及其所有子项目
+allprojects {
+    //来配置所有项目（包括父项目）的共同设置。
+//    apply plugin: 'idea'
+    repositories {
+        google()
+        jcenter()
+    }
+}
+//父Project的一个属性,返回所有子项目.
+subprojects {
+    //可以配置所有子项目共有的设置，比如共同的插件、repositories、依赖版本以及依赖配置
+}
+
+//有部分子项目具有相同的配置
+/*configure(subprojects.find{
+    //configure需要传入一个Project对象的数组，通过查找所有项目名包含war的子项目，并为其设置war插件。
+    
+}){
+    
+}*/
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

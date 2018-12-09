@@ -1,0 +1,2 @@
+//包含当前的子项目
+include ':example', ':latte-annotations', ':latte-compiler', ':latte-core',  ':latte-ec'
