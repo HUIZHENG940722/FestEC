@@ -12,7 +12,7 @@ import java.util.WeakHashMap;
  */
 public final class Latte {
     /**
-     * 初始化配置
+     * 在当前环境下初始化配置
      * @param context
      * @return
      */
@@ -21,6 +21,10 @@ public final class Latte {
         return Configurator.getInstance();
     }
 
+    /**
+     * 给配置文件增加上下文权限
+     * @return
+     */
     private static WeakHashMap<String,Object> getConfigurations(){
         return Configurator.getInstance().getLatteConfigs();
     }

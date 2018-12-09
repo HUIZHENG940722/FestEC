@@ -14,16 +14,20 @@ import java.util.WeakHashMap;
 public class Configurator {
     /**
      * 有static final命名必须是大写以及下划线
+     * 存放配置文件属性以及对应的值信息
      */
     private static final WeakHashMap<String,Object> LATTE_CONFIGS=new WeakHashMap<>();
     private Configurator(){
-        //.name()是以字符串的形式输出出来
+        /**
+         * name()是以字符串的形式输出出来
+         */
         LATTE_CONFIGS.put(ConfigType.CONFIG_READY.name(),false);
     }
+
+    /**
+     *
+     */
     private static class Holder{
-        /**
-         * 把单例放进来了
-         */
         private static final Configurator INSTANCE=new Configurator();
     }
 
