@@ -17,6 +17,10 @@ public class Configurator {
      * 存放配置文件属性以及对应的值信息
      */
     private static final WeakHashMap<String,Object> LATTE_CONFIGS=new WeakHashMap<>();
+
+    /**
+     * 构造函数，开始默认配置需要更新
+     */
     private Configurator(){
         /**
          * name()是以字符串的形式输出出来
@@ -25,16 +29,24 @@ public class Configurator {
     }
 
     /**
-     *
+     * 可以认为是个中间类，存放默认的配置信息
      */
     private static class Holder{
         private static final Configurator INSTANCE=new Configurator();
     }
 
+    /**
+     * 初始化配置信息
+     * @return
+     */
     public static Configurator getInstance(){
         return Holder.INSTANCE;
     }
 
+    /**
+     * 获取配置信息的上下文
+     * @return
+     */
     final WeakHashMap<String,Object> getLatteConfigs(){
         return LATTE_CONFIGS;
     }
@@ -46,13 +58,18 @@ public class Configurator {
         LATTE_CONFIGS.put(ConfigType.CONFIG_READY.name(),true);
     }
 
+    /**
+     * 配置网络请求域名
+     * @param apiHost
+     * @return
+     */
     public final Configurator withApiHost(String apiHost){
         LATTE_CONFIGS.put(ConfigType.API_HOST.name(),apiHost);
         return this;
     }
 
     /**
-     * 检查配置是否完成
+     * 判断配置是否完成
      */
     private void checkConfiguration(){
         final boolean isReady= (boolean) LATTE_CONFIGS.get(ConfigType.CONFIG_READY.name());
@@ -61,6 +78,12 @@ public class Configurator {
         }
     }
 
+    /**
+     * 获取配置信息属性值
+     * @param key
+     * @param <T>
+     * @return
+     */
     @SuppressWarnings("unchecked")
     final <T> T getConfiguration(Enum<ConfigType> key){
         checkConfiguration();

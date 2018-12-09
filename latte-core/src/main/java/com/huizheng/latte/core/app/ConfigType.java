@@ -1,7 +1,7 @@
 package com.huizheng.latte.core.app;
 
 /**
- *
+ * 配置文件存储的属性
  * @author HUIZHENG
  * @date 2018/12/9
  * @time 13:13
