@@ -11,6 +11,11 @@ import java.util.WeakHashMap;
  * Created by IntelliJ IDEA.
  */
 public final class Latte {
+    /**
+     * 初始化配置
+     * @param context
+     * @return
+     */
     public static Configurator init(Context context){
         getConfigurations().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
         return Configurator.getInstance();
