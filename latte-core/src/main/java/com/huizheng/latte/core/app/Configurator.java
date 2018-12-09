@@ -38,7 +38,7 @@ public class Configurator {
     /**
      * 告诉系统配置文件已好
      */
-    public static void configure(){
+    public final void configure(){
         LATTE_CONFIGS.put(ConfigType.CONFIG_READY.name(),true);
     }
 
@@ -47,6 +47,9 @@ public class Configurator {
         return this;
     }
 
+    /**
+     * 检查配置是否完成
+     */
     private void checkConfiguration(){
         final boolean isReady= (boolean) LATTE_CONFIGS.get(ConfigType.CONFIG_READY.name());
         if (!isReady){
