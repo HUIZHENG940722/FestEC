@@ -1,6 +1,7 @@
 package com.huizheng.festec.example;
 
 import android.app.Application;
+import com.huizheng.latte.core.app.Latte;
 
 
 /**
@@ -13,5 +14,6 @@ public class ExampleApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Latte.init(getApplicationContext());
     }
 }
